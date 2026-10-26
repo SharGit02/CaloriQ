@@ -27,5 +27,9 @@ Python, Streamlit, Pandas, NumPy, Scikit-learn, Joblib, Matplotlib, and Seaborn.
 3. Ensure the trained model file is available.
 4. Run `streamlit run app.py`.
 
+The repository includes `runtime.txt` and `.python-version` to keep deployments on
+Python 3.10, which matches the serialized scikit-learn model. For Streamlit
+Community Cloud, select this repository and use `app.py` as the entrypoint.
+
 ## Disclaimer
 Calorie predictions are estimates for educational and informational purposes, not medical advice.

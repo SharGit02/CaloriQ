@@ -5,18 +5,17 @@ import os
 import base64
 import time
 import warnings
-import collections
 
 # ── Compatibility patch for sklearn 1.6.x pkl on various scikit-learn versions ──
 try:
     import sklearn.compose._column_transformer as _ct
     if not hasattr(_ct, "_RemainderColsList"):
-        class _RemainderColsList(collections.UserList):
-            def __init__(self, *args, **kwargs):
-                super().__init__(*args)
-                self.__dict__.update(kwargs)
+        class _RemainderColsList(list):
+            def __reduce__(self):
+                return (list, (list(self),))
+
         _ct._RemainderColsList = _RemainderColsList
-except Exception:
+except ImportError:
     pass
 
 import joblib
