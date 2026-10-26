@@ -1,0 +1,477 @@
+{
+  "model_type": "Pipeline",
+  "module": "sklearn.pipeline",
+  "extracted_at": "2026-10-27 00:48:03",
+  "steps": [
+    "preprocessor",
+    "model"
+  ],
+  "step_preprocessor_type": "ColumnTransformer",
+  "step_preprocessor_feature_names_in_": [
+    "Age",
+    "Weight (kg)",
+    "Height (m)",
+    "Max_BPM",
+    "Avg_BPM",
+    "Resting_BPM",
+    "Session_Duration (hours)",
+    "Fat_Percentage",
+    "Water_Intake (liters)",
+    "Workout_Frequency (days/week)",
+    "Experience_Level",
+    "BMI",
+    "Gender",
+    "Workout_Type"
+  ],
+  "step_preprocessor_n_features_in_": 14,
+  "step_preprocessor_params": {
+    "force_int_remainder_cols": true,
+    "n_jobs": null,
+    "remainder": "drop",
+    "sparse_threshold": 0.3,
+    "transformer_weights": null,
+    "transformers": [
+      [
+        "numeric",
+        "Pipeline(steps=[('imputer', SimpleImputer(strategy='median')),\n                ('scaler', StandardScaler())])",
+        [
+          "Age",
+          "Weight (kg)",
+          "Height (m)",
+          "Max_BPM",
+          "Avg_BPM",
+          "Resting_BPM",
+          "Session_Duration (hours)",
+          "Fat_Percentage",
+          "Water_Intake (liters)",
+          "Workout_Frequency (days/week)",
+          "Experience_Level",
+          "BMI"
+        ]
+      ],
+      [
+        "categorical",
+        "Pipeline(steps=[('imputer', SimpleImputer(strategy='most_frequent')),\n                ('onehot', OneHotEncoder(handle_unknown='ignore'))])",
+        [
+          "Gender",
+          "Workout_Type"
+        ]
+      ]
+    ],
+    "verbose": false,
+    "verbose_feature_names_out": true,
+    "numeric": "Pipeline(steps=[('imputer', SimpleImputer(strategy='median')),\n                ('scaler', StandardScaler())])",
+    "categorical": "Pipeline(steps=[('imputer', SimpleImputer(strategy='most_frequent')),\n                ('onehot', OneHotEncoder(handle_unknown='ignore'))])",
+    "numeric__memory": null,
+    "numeric__steps": [
+      [
+        "imputer",
+        "SimpleImputer(strategy='median')"
+      ],
+      [
+        "scaler",
+        "StandardScaler()"
+      ]
+    ],
+    "numeric__transform_input": null,
+    "numeric__verbose": false,
+    "numeric__imputer": "SimpleImputer(strategy='median')",
+    "numeric__scaler": "StandardScaler()",
+    "numeric__imputer__add_indicator": false,
+    "numeric__imputer__copy": true,
+    "numeric__imputer__fill_value": null,
+    "numeric__imputer__keep_empty_features": false,
+    "numeric__imputer__missing_values": NaN,
+    "numeric__imputer__strategy": "median",
+    "numeric__scaler__copy": true,
+    "numeric__scaler__with_mean": true,
+    "numeric__scaler__with_std": true,
+    "categorical__memory": null,
+    "categorical__steps": [
+      [
+        "imputer",
+        "SimpleImputer(strategy='most_frequent')"
+      ],
+      [
+        "onehot",
+        "OneHotEncoder(handle_unknown='ignore')"
+      ]
+    ],
+    "categorical__transform_input": null,
+    "categorical__verbose": false,
+    "categorical__imputer": "SimpleImputer(strategy='most_frequent')",
+    "categorical__onehot": "OneHotEncoder(handle_unknown='ignore')",
+    "categorical__imputer__add_indicator": false,
+    "categorical__imputer__copy": true,
+    "categorical__imputer__fill_value": null,
+    "categorical__imputer__keep_empty_features": false,
+    "categorical__imputer__missing_values": NaN,
+    "categorical__imputer__strategy": "most_frequent",
+    "categorical__onehot__categories": "auto",
+    "categorical__onehot__drop": null,
+    "categorical__onehot__dtype": "<class 'numpy.float64'>",
+    "categorical__onehot__feature_name_combiner": "concat",
+    "categorical__onehot__handle_unknown": "ignore",
+    "categorical__onehot__max_categories": null,
+    "categorical__onehot__min_frequency": null,
+    "categorical__onehot__sparse_output": true
+  },
+  "step_model_type": "GradientBoostingRegressor",
+  "step_model_n_features_in_": 18,
+  "feature_importances_": [
+    0.026919316109658337,
+    0.0008745902139043084,
+    0.00011344943109721305,
+    1.9365840533759854e-05,
+    0.11127168201033052,
+    4.21627930979687e-05,
+    0.8076456830264339,
+    0.035320677896318216,
+    0.00022709647953975215,
+    1.2751676478552468e-05,
+    3.716428245660729e-06,
+    2.7585392577714824e-05,
+    0.008351608239081754,
+    0.009155903433243798,
+    6.792127678572474e-06,
+    0.0,
+    5.2629292539306175e-06,
+    2.355972525970139e-06
+  ],
+  "step_model_params": {
+    "alpha": 0.9,
+    "ccp_alpha": 0.0,
+    "criterion": "friedman_mse",
+    "init": null,
+    "learning_rate": 0.1,
+    "loss": "squared_error",
+    "max_depth": 3,
+    "max_features": null,
+    "max_leaf_nodes": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "n_estimators": 100,
+    "n_iter_no_change": null,
+    "random_state": 42,
+    "subsample": 1.0,
+    "tol": 0.0001,
+    "validation_fraction": 0.1,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "feature_names_out": [
+    "numeric__Age",
+    "numeric__Weight (kg)",
+    "numeric__Height (m)",
+    "numeric__Max_BPM",
+    "numeric__Avg_BPM",
+    "numeric__Resting_BPM",
+    "numeric__Session_Duration (hours)",
+    "numeric__Fat_Percentage",
+    "numeric__Water_Intake (liters)",
+    "numeric__Workout_Frequency (days/week)",
+    "numeric__Experience_Level",
+    "numeric__BMI",
+    "categorical__Gender_Female",
+    "categorical__Gender_Male",
+    "categorical__Workout_Type_Cardio",
+    "categorical__Workout_Type_HIIT",
+    "categorical__Workout_Type_Strength",
+    "categorical__Workout_Type_Yoga"
+  ],
+  "feature_importances_raw": [
+    0.026919316109658337,
+    0.0008745902139043084,
+    0.00011344943109721305,
+    1.9365840533759854e-05,
+    0.11127168201033052,
+    4.21627930979687e-05,
+    0.8076456830264339,
+    0.035320677896318216,
+    0.00022709647953975215,
+    1.2751676478552468e-05,
+    3.716428245660729e-06,
+    2.7585392577714824e-05,
+    0.008351608239081754,
+    0.009155903433243798,
+    6.792127678572474e-06,
+    0.0,
+    5.2629292539306175e-06,
+    2.355972525970139e-06
+  ],
+  "feature_importances_ranked": [
+    {
+      "feature": "numeric__Session_Duration (hours)",
+      "importance": 0.8076456830264339
+    },
+    {
+      "feature": "numeric__Avg_BPM",
+      "importance": 0.11127168201033052
+    },
+    {
+      "feature": "numeric__Fat_Percentage",
+      "importance": 0.035320677896318216
+    },
+    {
+      "feature": "numeric__Age",
+      "importance": 0.026919316109658337
+    },
+    {
+      "feature": "categorical__Gender_Male",
+      "importance": 0.009155903433243798
+    },
+    {
+      "feature": "categorical__Gender_Female",
+      "importance": 0.008351608239081754
+    },
+    {
+      "feature": "numeric__Weight (kg)",
+      "importance": 0.0008745902139043084
+    },
+    {
+      "feature": "numeric__Water_Intake (liters)",
+      "importance": 0.00022709647953975215
+    },
+    {
+      "feature": "numeric__Height (m)",
+      "importance": 0.00011344943109721305
+    },
+    {
+      "feature": "numeric__Resting_BPM",
+      "importance": 4.21627930979687e-05
+    },
+    {
+      "feature": "numeric__BMI",
+      "importance": 2.7585392577714824e-05
+    },
+    {
+      "feature": "numeric__Max_BPM",
+      "importance": 1.9365840533759854e-05
+    },
+    {
+      "feature": "numeric__Workout_Frequency (days/week)",
+      "importance": 1.2751676478552468e-05
+    },
+    {
+      "feature": "categorical__Workout_Type_Cardio",
+      "importance": 6.792127678572474e-06
+    },
+    {
+      "feature": "categorical__Workout_Type_Strength",
+      "importance": 5.2629292539306175e-06
+    },
+    {
+      "feature": "numeric__Experience_Level",
+      "importance": 3.716428245660729e-06
+    },
+    {
+      "feature": "categorical__Workout_Type_Yoga",
+      "importance": 2.355972525970139e-06
+    },
+    {
+      "feature": "categorical__Workout_Type_HIIT",
+      "importance": 0.0
+    }
+  ],
+  "dataset_shape": [
+    973,
+    15
+  ],
+  "dataset_columns": [
+    "Age",
+    "Gender",
+    "Weight (kg)",
+    "Height (m)",
+    "Max_BPM",
+    "Avg_BPM",
+    "Resting_BPM",
+    "Session_Duration (hours)",
+    "Calories_Burned",
+    "Workout_Type",
+    "Fat_Percentage",
+    "Water_Intake (liters)",
+    "Workout_Frequency (days/week)",
+    "Experience_Level",
+    "BMI"
+  ],
+  "pipeline_evaluation": {
+    "MAE": 15.587,
+    "MSE": 479.1,
+    "RMSE": 21.888,
+    "R2_Score": 0.9943
+  },
+  "sample_actual_vs_predicted": [
+    {
+      "actual": 929.0,
+      "predicted": 928.5
+    },
+    {
+      "actual": 1401.0,
+      "predicted": 1410.4
+    },
+    {
+      "actual": 925.0,
+      "predicted": 923.2
+    },
+    {
+      "actual": 1155.0,
+      "predicted": 1133.6
+    },
+    {
+      "actual": 1587.0,
+      "predicted": 1517.8
+    },
+    {
+      "actual": 1247.0,
+      "predicted": 1292.4
+    },
+    {
+      "actual": 950.0,
+      "predicted": 951.0
+    },
+    {
+      "actual": 927.0,
+      "predicted": 942.4
+    },
+    {
+      "actual": 1053.0,
+      "predicted": 1052.9
+    },
+    {
+      "actual": 1201.0,
+      "predicted": 1196.8
+    },
+    {
+      "actual": 1336.0,
+      "predicted": 1331.3
+    },
+    {
+      "actual": 627.0,
+      "predicted": 625.0
+    },
+    {
+      "actual": 820.0,
+      "predicted": 820.7
+    },
+    {
+      "actual": 732.0,
+      "predicted": 742.8
+    },
+    {
+      "actual": 725.0,
+      "predicted": 698.9
+    },
+    {
+      "actual": 688.0,
+      "predicted": 693.5
+    },
+    {
+      "actual": 875.0,
+      "predicted": 868.7
+    },
+    {
+      "actual": 1092.0,
+      "predicted": 1141.6
+    },
+    {
+      "actual": 876.0,
+      "predicted": 894.7
+    },
+    {
+      "actual": 475.0,
+      "predicted": 503.7
+    },
+    {
+      "actual": 917.0,
+      "predicted": 908.6
+    },
+    {
+      "actual": 805.0,
+      "predicted": 836.1
+    },
+    {
+      "actual": 847.0,
+      "predicted": 849.6
+    },
+    {
+      "actual": 911.0,
+      "predicted": 929.8
+    },
+    {
+      "actual": 497.0,
+      "predicted": 524.7
+    },
+    {
+      "actual": 737.0,
+      "predicted": 756.7
+    },
+    {
+      "actual": 949.0,
+      "predicted": 947.6
+    },
+    {
+      "actual": 481.0,
+      "predicted": 460.6
+    },
+    {
+      "actual": 938.0,
+      "predicted": 962.1
+    },
+    {
+      "actual": 1158.0,
+      "predicted": 1164.8
+    }
+  ],
+  "model_comparison": [
+    {
+      "Model": "Gradient Boosting",
+      "MAE": 15.59,
+      "MSE": 479.1,
+      "RMSE": 21.89,
+      "R2": 0.9943,
+      "Training_Time_s": 0.381
+    },
+    {
+      "Model": "Linear Regression",
+      "MAE": 30.27,
+      "MSE": 1646.2,
+      "RMSE": 40.57,
+      "R2": 0.9803,
+      "Training_Time_s": 0.013
+    },
+    {
+      "Model": "Ridge Regression",
+      "MAE": 30.34,
+      "MSE": 1651.9,
+      "RMSE": 40.64,
+      "R2": 0.9802,
+      "Training_Time_s": 0.014
+    },
+    {
+      "Model": "Random Forest",
+      "MAE": 35.97,
+      "MSE": 2229.4,
+      "RMSE": 47.22,
+      "R2": 0.9733,
+      "Training_Time_s": 0.65
+    },
+    {
+      "Model": "Support Vector Regressor",
+      "MAE": 39.38,
+      "MSE": 3251.0,
+      "RMSE": 57.02,
+      "R2": 0.961,
+      "Training_Time_s": 0.045
+    },
+    {
+      "Model": "Decision Tree",
+      "MAE": 52.11,
+      "MSE": 4799.9,
+      "RMSE": 69.28,
+      "R2": 0.9425,
+      "Training_Time_s": 0.018
+    }
+  ]
+}
